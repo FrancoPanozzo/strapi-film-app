@@ -1,0 +1,48 @@
+{
+  "kind": "collectionType",
+  "collectionName": "series",
+  "info": {
+    "name": "serie",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "synopsis": {
+      "type": "text"
+    },
+    "poster": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "release_date": {
+      "type": "date"
+    },
+    "seasons": {
+      "type": "integer"
+    },
+    "actors": {
+      "collection": "actor",
+      "via": "series",
+      "dominant": true
+    },
+    "directors": {
+      "collection": "director",
+      "via": "series",
+      "dominant": true
+    }
+  }
+}

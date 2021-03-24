@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "directors",
+  "info": {
+    "name": "director"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "first_name": {
+      "type": "string"
+    },
+    "last_name": {
+      "type": "string"
+    },
+    "films": {
+      "collection": "film",
+      "via": "directors",
+      "dominant": true
+    },
+    "profile_pic": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "biography": {
+      "type": "text"
+    },
+    "series": {
+      "via": "directors",
+      "collection": "serie"
+    }
+  }
+}

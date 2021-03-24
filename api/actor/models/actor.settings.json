@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "actors",
+  "info": {
+    "name": "actor",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "first_name": {
+      "type": "string"
+    },
+    "last_name": {
+      "type": "string"
+    },
+    "profile_pic": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "biography": {
+      "type": "text"
+    },
+    "films": {
+      "collection": "film",
+      "via": "actors",
+      "dominant": true
+    },
+    "series": {
+      "via": "actors",
+      "collection": "serie"
+    }
+  }
+}
